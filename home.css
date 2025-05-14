@@ -1,12 +1,20 @@
 /* Specific styles for index.html */
+body {
+  margin: 5;
+  padding: 5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .container-content {
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  margin-bottom: 20px;
+  flex: 1; /* Takes up available space */
+  padding: 20px 0; /* Add vertical padding only */
 }
 
 .a-content {
@@ -25,81 +33,91 @@
 .container-teacher {
   display: flex;
   width: 100%;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: center; /* Center items */
   align-items: flex-start;
   padding: 15px;
+  gap: 20px; /* Add consistent gap between items */
 }
 
 .img-teacher {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-height: 500px;
-  margin: 15px;
+  width: 200px; /* Fixed width for better control */
+  margin: 15px 0; /* Adjust vertical margin only */
   position: relative;
 }
 
 .img-teacher img {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
   border-radius: 50%;
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
+  object-fit: cover; /* Ensure images maintain aspect ratio */
 }
 
 .name-container {
   text-align: center;
   position: absolute;
-  top: -50px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 15, 17, 0.8);
   padding: 5px 10px;
   border-radius: 5px;
+  width: max-content; /* Fit content width */
+  max-width: 180px; /* Prevent overflow */
 }
 
 .teacher-name {
   font-weight: bold;
   color: white;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ucapan-trims {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  width: 80%;
-  align-self: center;
+  margin: 30px auto 10px;
+  width: 90%;
+  text-align: center;
+}
+
+.ucapan-trims p {
+  text-align: justify;
+  line-height: 1.6;
 }
 
 .container-navbar {
   background-color: #333;
   width: 100%;
-  height: auto; /* Changed from 10vh to auto */
-  min-height: 60px; /* Minimum height */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  overflow-y: hidden; /* Prevent vertical scrolling */
-  white-space: nowrap; /* Prevent items from wrapping */
+  height: auto;
+  min-height: 60px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
 
 .ul-navbar {
-  display: flex; /* Changed from flex to inline-flex */
-  height: 100%; /* Changed from center to flex-start */
+  display: inline-flex;
+  height: 100%;
   align-items: center;
-  padding: 0 20px; /* Add horizontal padding */
-  min-width: max-content; /* Ensure container is wide enough */
+  padding: 0 20px;
+  min-width: max-content;
 }
 
 .li-navbar {
   list-style-type: none;
-  padding: 10px 15px; /* Adjusted padding */
-  margin: 0 5px; /* Adjusted margin */
+  padding: 10px 15px;
+  margin: 0 5px;
   color: white;
-  font-size: 1.2rem; /* Reduced from 30px to 1.2rem */
-  flex-shrink: 0; /* Prevent items from shrinking */
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
-/* Keep your existing hover styles */
 .li-navbar:hover {
   background-color: grey;
   border-radius: 8px;
@@ -109,93 +127,105 @@
   color: white;
   text-decoration: none;
   font-weight: 800;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
 }
 
-.ucapan-trims {
+.container-footer {
+  margin-top: auto; /* Adjust as needed */
+  padding: 15px 0;
+  background-color: #333; /* Match your design */
+  color: white;
+  text-align: center;
   width: 100%;
+  position: relative; /* Remove if using fixed/flex layouts */
 }
 
-.ucapan-trims p {
-  text-align: justify;
-}
-
-/* Responsive styles for index.html content */
+/* Responsive styles */
 @media (max-width: 1024px) {
   .li-navbar {
     font-size: 1rem;
+    padding: 8px 12px;
+  }
+  
+  .img-teacher {
+    width: 180px;
+  }
+  
+  .img-teacher img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-teacher {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 30px;
+  }
+  
+  .img-teacher {
+    width: 160px;
+  }
+  
+  .img-teacher img {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .name-container {
+    top: -15px;
+  }
+  
+  .a-content {
+    width: 90%;
+    font-size: 18px;
+  }
+  
+  .ul-navbar {
+    justify-content: flex-start;
+  }
+  
+  .li-navbar {
+    font-size: 0.9rem;
     padding: 6px 10px;
   }
 }
-@media (max-width: 768px) {
-  .ul-navbar {
-    justify-content: space-around;
-    gap: 3px;
-  }
-
-  .li-navbar {
-    font-size: 0.9rem;
-    padding: 5px 8px;
-  }
-  .container-teacher {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .img-teacher {
-    width: 80%;
-    margin: 15px 0;
-  }
-
-  .img-teacher img {
-    width: 200px;
-    height: 200px;
-  }
-
-  .teacher-name {
-    font-size: 0.9rem;
-    top: -30px;
-  }
-
-  /* .  .a-content {
-    width: 90%;
-    font-size: 1rem;
-  } */
-}
 
 @media (max-width: 480px) {
-  .ul-navbar {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+  .container-teacher {
+    grid-template-columns: 1fr; /* 1 column */
+    gap: 40px;
   }
-
-  .li-navbar {
-    width: 100%;
-    text-align: center;
-    padding: 8px;
+  
+  .img-teacher {
+    width: 140px;
+  }
+  
+  .img-teacher img {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .teacher-name {
     font-size: 0.9rem;
   }
-  .img-teacher {
-    width: 95%;
-  }
-
-  .img-teacher img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .teacher-name {
-    font-size: 0.8rem;
-    top: -25px;
-  }
-
-  .ucapan-trims p {
-    font-size: 0.85rem;
-  }
-
+  
   .a-content {
     width: 95%;
     padding: 15px;
+    font-size: 16px;
+  }
+  
+  .ucapan-trims p {
+    font-size: 0.9rem;
+  }
+  
+  .ul-navbar {
+    padding: 0 10px;
+  }
+  
+  .li-navbar {
+    font-size: 0.8rem;
+    padding: 5px 8px;
   }
 }
