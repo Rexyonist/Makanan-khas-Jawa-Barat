@@ -1,4 +1,4 @@
-/* Specific styles for home.html */
+/* Specific styles for index.html */
 .container-content {
   background-color: #f7f7f7;
   display: flex;
@@ -84,7 +84,7 @@
 
 .ul-navbar {
   display: flex; /* Changed from flex to inline-flex */
-  height: 100%;/* Changed from center to flex-start */
+  height: 100%; /* Changed from center to flex-start */
   align-items: center;
   padding: 0 20px; /* Add horizontal padding */
   min-width: max-content; /* Ensure container is wide enough */
@@ -113,14 +113,14 @@
 }
 
 .ucapan-trims {
-    width: 100%;
+  width: 100%;
 }
 
 .ucapan-trims p {
   text-align: justify;
 }
 
-/* Responsive styles for home.html content */
+/* Responsive styles for index.html content */
 @media (max-width: 1024px) {
   .li-navbar {
     font-size: 1rem;
@@ -132,7 +132,7 @@
     justify-content: space-around;
     gap: 3px;
   }
-  
+
   .li-navbar {
     font-size: 0.9rem;
     padding: 5px 8px;
@@ -157,7 +157,7 @@
     top: -30px;
   }
 
-/* .  .a-content {
+  /* .  .a-content {
     width: 90%;
     font-size: 1rem;
   } */
@@ -169,7 +169,7 @@
     align-items: center;
     gap: 5px;
   }
-  
+
   .li-navbar {
     width: 100%;
     text-align: center;
